@@ -1,0 +1,3148 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/philosophy#"
+     xml:base="http://example.org/philosophy"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:philosophy="http://example.org/philosophy#">
+    <owl:Ontology rdf:about="http://example.org/philosophy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/philosophy#characterizes_philosopher -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#characterizes_philosopher">
+        <owl:inverseOf rdf:resource="http://example.org/philosophy#is_characterized_by"/>
+        <rdfs:label xml:lang="ru">характеризует философа</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#contains_fragment -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#contains_fragment">
+        <owl:inverseOf rdf:resource="http://example.org/philosophy#described_in_source"/>
+        <rdfs:label xml:lang="ru">содержит фрагмент</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#described_in_source -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#described_in_source">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Source"/>
+        <rdfs:label xml:lang="ru">описан в источнике</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#describes_dimension -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#describes_dimension">
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Dimension"/>
+        <rdfs:label xml:lang="ru">описывает измерение</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#has_dimension -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#has_dimension">
+        <owl:inverseOf rdf:resource="http://example.org/philosophy#is_dimension_of_characteristic"/>
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Dimension"/>
+        <rdfs:label xml:lang="ru">имеет измерение</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#has_fragment -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#has_fragment">
+        <owl:inverseOf rdf:resource="http://example.org/philosophy#relates_to_philosopher"/>
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <rdfs:label xml:lang="ru">имеет фрагмент</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#has_position -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#has_position">
+        <owl:inverseOf rdf:resource="http://example.org/philosophy#is_position_of"/>
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+        <rdfs:label xml:lang="ru">имеет позицию</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#influences -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#influences">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <rdfs:label xml:lang="ru">влияет на</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#is_characterized_by -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#is_characterized_by">
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://example.org/philosophy#has_fragment"/>
+            <rdf:Description rdf:about="http://example.org/philosophy#represents_characteristic"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label xml:lang="ru">характеризуется</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#is_dimension_of_characteristic -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#is_dimension_of_characteristic">
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Dimension"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <rdfs:label xml:lang="ru">характеристика измерения</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#is_expressed_in -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#is_expressed_in">
+        <owl:inverseOf rdf:resource="http://example.org/philosophy#represents_characteristic"/>
+        <rdfs:label xml:lang="ru">выражается в</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#is_historically_related_to -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#is_historically_related_to">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <rdfs:label xml:lang="ru">исторически связан с</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#is_position_of -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#is_position_of">
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <rdfs:label xml:lang="ru">является позицией</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#is_source_for -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#is_source_for">
+        <owl:inverseOf rdf:resource="http://example.org/philosophy#is_studied_from_source"/>
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Source"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <rdfs:label xml:lang="ru">источник для</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#is_studied_from_source -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#is_studied_from_source">
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Source"/>
+        <rdfs:label xml:lang="ru">изучается по источнику</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#relates_to_philosopher -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#relates_to_philosopher">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="ru">относится к философу</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/philosophy#represents_characteristic -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/philosophy#represents_characteristic">
+        <rdfs:domain rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <rdfs:range rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <rdfs:label xml:lang="ru">представляет характеристику</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/philosophy#has_quote -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/philosophy#has_quote">
+        <rdfs:label xml:lang="ru">имеет цитату</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/philosophy#Characteristic -->
+
+    <owl:Class rdf:about="http://example.org/philosophy#Characteristic">
+        <rdfs:label xml:lang="ru">Характеристика</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/philosophy#Dimension -->
+
+    <owl:Class rdf:about="http://example.org/philosophy#Dimension">
+        <rdfs:label xml:lang="ru">Измерение</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/philosophy#Goal_Characteristic -->
+
+    <owl:Class rdf:about="http://example.org/philosophy#Goal_Characteristic">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/philosophy#Characteristic"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/philosophy#has_dimension"/>
+                        <owl:hasValue rdf:resource="http://example.org/philosophy#Цель"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <rdfs:label xml:lang="ru">Характеристика цели</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/philosophy#Interpretation_fragment -->
+
+    <owl:Class rdf:about="http://example.org/philosophy#Interpretation_fragment">
+        <rdfs:label xml:lang="ru">Фрагмент интерпретации</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/philosophy#Method_Characteristic -->
+
+    <owl:Class rdf:about="http://example.org/philosophy#Method_Characteristic">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/philosophy#Characteristic"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/philosophy#has_dimension"/>
+                        <owl:hasValue rdf:resource="http://example.org/philosophy#Метод"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <rdfs:label xml:lang="ru">Характеристика метода</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/philosophy#Philosopher -->
+
+    <owl:Class rdf:about="http://example.org/philosophy#Philosopher">
+        <rdfs:label xml:lang="ru">Философ</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/philosophy#Philosophical_movement -->
+
+    <owl:Class rdf:about="http://example.org/philosophy#Philosophical_movement">
+        <rdfs:label xml:lang="ru">Философское направление</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/philosophy#Source -->
+
+    <owl:Class rdf:about="http://example.org/philosophy#Source">
+        <rdfs:label xml:lang="ru">Источник</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/philosophy#Style_Characteristic -->
+
+    <owl:Class rdf:about="http://example.org/philosophy#Style_Characteristic">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/philosophy#Characteristic"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/philosophy#has_dimension"/>
+                        <owl:hasValue rdf:resource="http://example.org/philosophy#Стиль"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <rdfs:label xml:lang="ru">Характеристика стиля</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/philosophy#Subject_Characteristic -->
+
+    <owl:Class rdf:about="http://example.org/philosophy#Subject_Characteristic">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/philosophy#Characteristic"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/philosophy#has_dimension"/>
+                        <owl:hasValue rdf:resource="http://example.org/philosophy#Предмет"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <rdfs:label xml:lang="ru">Характеристика предмета</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/philosophy#BER-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#BER-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Беркли"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_абстрактных_идей"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_метафизики"/>
+        <has_quote>«я абсолютно отрицаю существование не общих идей, а лишь абстрактных общих идей»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#BER-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#BER-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Беркли"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Логико_лингвистический_анализ"/>
+        <has_quote>«сообщение идей, обозначаемых словами, не составляет, как это обыкновенно предполагается, главной или единственной цели языка»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#BER-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#BER-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Беркли"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Бытие_как_воспринимаемость"/>
+        <has_quote>«Их esse есть percipi, и невозможно, чтобы они имели какое-либо существование вне духов или воспринимающих их мыслящих вещей»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#BER-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#BER-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Беркли"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Эмпирическая_опора"/>
+        <has_quote>«идея не может походить ни на что иное, кроме идеи»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#BER-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#BER-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Беркли"/>
+        <has_quote>«Вам стоит только вникнуть в свои собственные мысли и испытать таким образом, в состоянии ли вы представить себе возможным, чтобы звук, форма, движение и цвет существовали вне духа»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#BER-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#BER-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Беркли"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Открытость_к_религии"/>
+        <has_quote>«причина идей есть бестелесная деятельная субстанция, или дух»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#BER-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#BER-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Беркли"/>
+        <has_quote>«могут возразить, что, согласно вышеприведенным принципам, все то, что реально и субстанциально в природе, изгоняется из мира и заменяется химерической схемой идей»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#BER-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#BER-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Беркли"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Логико_лингвистический_анализ"/>
+        <has_quote>«о таких вещах мы должны мыслить как ученые, а говорить как толпа»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#BER-09 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#BER-09">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Беркли"/>
+        <has_quote>«Видимый мной огонь есть не причина боли, испытываемой мной при приближении к нему, но только предостерегающий меня от нее знак»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#BER-10 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#BER-10">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Беркли"/>
+        <has_quote>«Покуда мы приписываем немыслящим вещам действительное существование, отличное от их воспринимаемости, для нас не только невозможно познать с очевидностью природу какой-нибудь реальной немыслящей вещи»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#BER-11 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#BER-11">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Беркли"/>
+        <has_quote>«Есть много других преимуществ и для религии, и для наук»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#CAR-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#CAR-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Карнап"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_метафизики"/>
+        <has_quote>«мнимые предложения метафизики путем логического анализа языка разоблачаются как псевдопредложения»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#CAR-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#CAR-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Карнап"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_метафизики"/>
+        <has_quote>«мнимые предложения этой области являются полностью бессмысленными»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#CAR-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#CAR-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Карнап"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Эмпирическая_опора"/>
+        <has_quote>«Если для нового слова не установлен критерий, то предложения, в которых оно встречается, ничего не выражают»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#CAR-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#CAR-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Карнап"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Логико_лингвистический_анализ"/>
+        <has_quote>«Синтаксис языка указывает, какие сочетания слов допустимы, а какие нет»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#CAR-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#CAR-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Карнап"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Примеры"/>
+        <has_quote>«Мы выбрали несколько предложений из одного метафизического учения»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#CAR-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#CAR-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Карнап"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_метафизики"/>
+        <has_quote>«Приговор действителен для всей философии ценностей и норм»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#CAR-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#CAR-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Карнап"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_метафизики"/>
+        <has_quote>«они служат для выражения чувства жизни»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#CAR-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#CAR-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Карнап"/>
+        <has_quote>«истоком метафизики был миф»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#CAR-09 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#CAR-09">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Карнап"/>
+        <has_quote>«наследством мифа выступает… поэзия»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#CAR-10 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#CAR-10">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Карнап"/>
+        <has_quote>«Возьмем, например, два ряда слов»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#DES-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#DES-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Рассуждение_о_методе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Декарт"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Метод_сомнения"/>
+        <has_quote>«что касается взглядов, воспринятых мною до того времени, я не мог предпринять ничего лучшего, как избавиться от них раз и навсегда…»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#DES-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#DES-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Рассуждение_о_методе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Декарт"/>
+        <has_quote>«Первое – никогда не принимать за истинное ничего, что я не признал бы таковым с очевидностью»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#DES-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#DES-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Рассуждение_о_методе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Декарт"/>
+        <has_quote>«в логике ее силлогизмы и большинство других правил служат больше для объяснения другим того, что нам известно»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#DES-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#DES-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Рассуждение_о_методе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Декарт"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Метод_сомнения"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Ограничение_разума"/>
+        <has_quote>«истина Я мыслю, следовательно, я существую столь тверда и верна, что самые сумасбродные предположения скептиков не могут ее поколебать»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#DES-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#DES-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Рассуждение_о_методе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Декарт"/>
+        <has_quote>«все представляемое нами вполне ясно и отчетливо – истинно»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#DES-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#DES-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Рассуждение_о_методе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Декарт"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Открытость_к_религии"/>
+        <has_quote>«утверждение, что Бог – совершеннейшее существо – есть, или существует, по меньшей мере настолько же достоверно, насколько достоверно геометрическое доказательство»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#DES-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#DES-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Рассуждение_о_методе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Декарт"/>
+        <has_quote>«Я находился тогда в Германии, где оказался призванным в связи с войной, не кончившейся там и доныне»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#DES-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#DES-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Рассуждение_о_методе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Декарт"/>
+        <has_quote>«Мое намерение никогда не простиралось дальше того, чтобы преобразовывать мои собственные мысли…»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPIC-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPIC-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Письмо_к_Менекею"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпикур"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Практическая_ориентация"/>
+        <has_quote>«Стало быть, надобно подумать о том, что составляет наше счастье – ведь когда оно у нас есть, то всё у нас есть»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPIC-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPIC-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Письмо_к_Менекею"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпикур"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_терапия"/>
+        <has_quote>«ведь для душевного здоровья никто не может быть ни недозрелым, ни перезрелым»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPIC-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPIC-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Письмо_к_Менекею"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпикур"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Открытость_к_религии"/>
+        <has_quote>«Нечестив не тот, кто отвергает богов толпы, а тот, кто принимает мнения толпы о богах»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPIC-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPIC-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Письмо_к_Менекею"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпикур"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Эмпирическая_опора"/>
+        <has_quote>«всё и хорошее, и дурное заключается в ощущении»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPIC-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPIC-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Письмо_к_Менекею"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпикур"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Классификация_желаний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Практическая_ориентация"/>
+        <has_quote>«среди желаний наших следует одни считать естественными, другие – праздными»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPIC-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPIC-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Письмо_к_Менекею"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпикур"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Практическая_ориентация"/>
+        <has_quote>«мы разумеем свободу от страданий тела и от смятений души»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPIC-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPIC-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Письмо_к_Менекею"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпикур"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Классификация_желаний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Практическая_ориентация"/>
+        <has_quote>«надо обо всём судить, рассматривая и соразмеряя полезное и неполезное»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPIC-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPIC-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Письмо_к_Менекею"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпикур"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Практическая_ориентация"/>
+        <has_quote>«привычка к простым и недорогим кушаньям и здоровье нам укрепляет»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPIC-09 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPIC-09">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Письмо_к_Менекею"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпикур"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Свобода_и_ответственность"/>
+        <has_quote>«зависящее от нас ничему иному не подвластно и поэтому подлежит как порицанию, так и похвале»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPIC-10 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPIC-10">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Письмо_к_Менекею"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпикур"/>
+        <has_quote>«Эпикур Менекею шлёт привет»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPICT-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPICT-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Руководство_к_жизни"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпиктет"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Свобода_и_ответственность"/>
+        <has_quote>«Среди всех существующих в мире вещей, одни зависят от нас, а другие нет. От нас зависят наши мысли, побуждения, желания, страхи… не зависят от нас наше тело, деньги, репутация…»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPICT-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPICT-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Руководство_к_жизни"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпиктет"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Душевное_спокойствие"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Практическая_ориентация"/>
+        <has_quote>«если ты будешь считать своим лишь то, что таковым и является… никто и никогда не сможет ни принудить тебя… у тебя не будет врагов»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPICT-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPICT-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Руководство_к_жизни"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпиктет"/>
+        <has_quote>«А после подвергни эту фантазию испытанию своими жизненными правилами»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPICT-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPICT-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Руководство_к_жизни"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпиктет"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Примеры"/>
+        <has_quote>«Если это твой любимый цветочный горшок, скажи себе: “Я люблю горшок для цветов”. … Обнимая своего ребёнка или свою жену, скажи себе: “Я обнимаю человеческое существо”»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPICT-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPICT-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Руководство_к_жизни"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпиктет"/>
+        <has_quote>«Выбор роли – не твоё дело и не твоя забота»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#EPICT-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#EPICT-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Руководство_к_жизни"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Эпиктет"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Практическая_ориентация"/>
+        <has_quote>«Не жди, чтобы события происходили так, как ты хочешь; приучи себя хотеть всего, что происходит так, как оно происходит»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_наука"/>
+        <has_quote>«Истинной формой, в которой существует истина, может быть лишь научная система ее. Моим намерением было – способствовать приближению философии к форме науки»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Истина_как_процесс"/>
+        <has_quote>«голый результат есть труп, оставивший позади себя тенденцию»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Ограничение_разума"/>
+        <has_quote>«не на понятие, а на экстаз, не на холодно развертывающуюся необходимость дела, а на бурное вдохновение»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_формализма"/>
+        <has_quote>«одноцветный формализм, который доходит только до различения материала»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <has_quote>«понять и выразить истинное не как субстанцию только, но равным образом и как субъект»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <has_quote>«Это становление науки вообще или знания и излагается в этой Феноменологии духа»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Диалектический_метод"/>
+        <has_quote>«Деятельность разложения [на составные части] есть сила и работа рассудка, изумительнейшей и величайшей или, лучше сказать, абсолютной мощи»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Диалектический_метод"/>
+        <has_quote>«неравенство как негативное, как самость непосредственно еще само находится в истинном как таковом»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-09 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-09">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_формализма"/>
+        <has_quote>«Движение математического доказательства не принадлежит тому, что есть предмет, а есть действование, по отношению к существу дела внешнее»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-10 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-10">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Диалектический_метод"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_наука"/>
+        <has_quote>«метод есть не что иное, как все сооружение в целом, воздвигнутое в его чистой существенности»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-11 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-11">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <has_quote>«природа суждения или предложения вообще, заключающая в себе различие субъекта и предиката, разрушается спекулятивным предложением»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-12 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-12">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_наука"/>
+        <has_quote>«Истинные мысли и научное проникновение можно приобрести только в работе понятия»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HEG-13 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HEG-13">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Гегель"/>
+        <has_quote>«Истинное, таким образом, есть вакхический восторг, все участники которого упоены»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HUM-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HUM-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Исследование_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Юм"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Эмпирическая_опора"/>
+        <has_quote>«все наши идеи, т.е. более слабые восприятия, суть копии наших впечатлений, т.е. более живых восприятий»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HUM-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HUM-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Исследование_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Юм"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Эмпирическая_опора"/>
+        <has_quote>«нам следует только спросить: от какого впечатления происходит эта предполагаемая идея?»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HUM-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HUM-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Исследование_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Юм"/>
+        <has_quote>«Мне представляется, что существуют только три принципа связи между идеями, а именно: сходство, смежность во времени или пространстве и причинность»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HUM-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HUM-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Исследование_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Юм"/>
+        <has_quote>«Все объекты, доступные человеческому разуму или исследованию, по природе своей могут быть разделены на два вида, а именно: на отношения между идеями и факты»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HUM-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HUM-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Исследование_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Юм"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Эмпирическая_опора"/>
+        <has_quote>«знание отношения причинности отнюдь не приобретается путем априорных заключений, но возникает всецело из опыта, когда мы замечаем, что отдельные объекты постоянно соединяются друг с другом»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HUM-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HUM-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Исследование_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Юм"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Ограничение_разума"/>
+        <has_quote>«Все заключения о фактах основаны, по-видимому, на отношении причины и действия»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HUM-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HUM-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Исследование_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Юм"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Ограничение_разума"/>
+        <has_quote>«наш разум без помощи опыта не может сделать никакого заключения относительно реального существования и фактов»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#HUM-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#HUM-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Исследование_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Юм"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Примеры"/>
+        <has_quote>«мы думаем, будто, оказавшись внезапно перенесенными в этот мир, мы сразу могли бы заключить, что один бильярдный шар сообщит другому движение путем толчка»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Практическая_ориентация"/>
+        <has_quote>«Обходит ли человек белку или нет? … Какая из сторон права, зависит от того, что вы практически подразумеваете под «обходить» белку»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <has_quote>«Прагматический метод — это прежде всего метод разрешения метафизических споров, которые иначе могли бы тянуться бесконечно. … Если никакого практического различия проследить нельзя, то альтернативы практически означают одно и то же, и всякий спор праздный»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Практическая_ориентация"/>
+        <has_quote>«чтобы развить смысл мысли, нам нужно лишь определить, какое поведение она способна породить: это поведение и есть для нас её единственный смысл»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Истина_через_практику"/>
+        <has_quote>«Не может быть никакого различия, которое не производило бы различия где-то ещё — никакого различия в абстрактной истине, которое не выражалось бы в различии конкретного факта»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_метафизики"/>
+        <has_quote>«Он отворачивается от абстракции и недостаточности, от словесных решений, от плохих априорных доводов, от неподвижных принципов, замкнутых систем и мнимых абсолютов и первоначал»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <has_quote>«Прагматизм представляет вполне знакомую установку в философии — установку эмпиризма… господство эмпирического склада ума и искреннее отречение от рационалистического»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Истина_через_практику"/>
+        <has_quote>«Это только метод. … Пока никаких особых результатов, а лишь установка ориентации»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_метафизики"/>
+        <has_quote>««Бог», «Материя», «Разум», «Абсолют», «Энергия» — всё это решающие имена. Вы можете успокоиться, когда они у вас есть. … Но если вы следуете прагматическому методу, вы не можете смотреть на подобное слово как на завершение своих поисков»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-09 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-09">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Истина_через_практику"/>
+        <has_quote>«Теории, таким образом, становятся орудиями, а не ответами на загадки, на которых можно успокоиться»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-10 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-10">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Практическая_ориентация"/>
+        <has_quote>«Установка, при которой отворачиваются от первых вещей, принципов, «категорий», мнимых необходимостей и обращаются к последним вещам, плодам, следствиям, фактам»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-11 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-11">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Истина_через_практику"/>
+        <has_quote>«Вы должны извлечь из каждого слова его практическую «денежную стоимость» и пустить его в дело в потоке вашего опыта»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-12 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-12">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Открытость_к_религии"/>
+        <has_quote>«Если теологические идеи окажутся ценными для конкретной жизни, они будут истинны для прагматизма — в том смысле, что хороши в этой мере»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#JAM-13 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#JAM-13">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Джеймс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Примеры"/>
+        <has_quote>«Я рассказываю этот пустяковый анекдот потому, что это особенно простой пример того, о чём я хочу теперь говорить как о прагматическом методе»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#KAN-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#KAN-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Пролегомены"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Кант"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_метафизики"/>
+        <has_quote>«в метафизике, которая хочет быть самой мудростью и к прорицаниям которой обращается каждый, постоянно приходится топтаться на месте, не делая ни шага вперёд»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#KAN-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#KAN-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Пролегомены"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Кант"/>
+        <has_quote>«указание Давида Юма было именно тем, что впервые – много лет тому назад – прервало мою догматическую дремоту»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#KAN-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#KAN-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Пролегомены"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Кант"/>
+        <has_quote>«признать все до сих пор сделанное несделанным и прежде всего поставить вопрос: возможно ли вообще то, что называется метафизикой?»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#KAN-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#KAN-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Пролегомены"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Кант"/>
+        <has_quote>«Как возможны априорные синтетические положения?»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#KAN-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#KAN-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Пролегомены"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Кант"/>
+        <has_quote>«познавать и объекты только так, как они могут нам (нашим чувствам) являться, а не такими, какими они могут быть сами по себе»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#KAN-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#KAN-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Пролегомены"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Кант"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Ограничение_разума"/>
+        <has_quote>«Что всеми своими априорными принципами разум даёт нам лишь знание предметов возможного опыта и в них лишь знание того, что может быть познано в опыте»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#KAN-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#KAN-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Пролегомены"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Кант"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Ограничение_разума"/>
+        <has_quote>«Ссылаться на согласие общего человеческого разума ты не вправе, так как это есть свидетельство, достоверность которого основана только на общепринятом мнении»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#KAN-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#KAN-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Пролегомены"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Кант"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Свобода_и_ответственность"/>
+        <has_quote>«свобода не препятствует закону явлений природы, равно как и этот закон не нарушает свободы практического применения разума»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#KAN-09 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#KAN-09">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Пролегомены"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Кант"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Открытость_к_религии"/>
+        <has_quote>«и тем самым дать простор нравственным идеям вне сферы спекуляции»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#KAN-10 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#KAN-10">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Пролегомены"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Кант"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_наука"/>
+        <has_quote>«Для философа нет ничего более желательного, чем суметь вывести из одного априорного принципа и соединить таким образом в одно познание»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#KAN-11 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#KAN-11">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Пролегомены"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Кант"/>
+        <has_quote>«Всякое познание вещей из одного лишь чистого рассудка или чистого разума есть одна лишь видимость, и истина только в опыте»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#LOCKE-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#LOCKE-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Опыт_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Локк"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Ограничение_разума"/>
+        <has_quote>«стоит поискать границы между мнением и знанием»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#LOCKE-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#LOCKE-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Опыт_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Локк"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_врождённых_идей"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Ограничение_разума"/>
+        <has_quote>«Указать путь, каким мы приходим ко всякому знанию, достаточно для доказательства того, что оно неврожденно»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#LOCKE-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#LOCKE-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Опыт_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Локк"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_врождённых_идей"/>
+        <has_quote>«будь даже в самом деле верно, что существует несколько признаваемых всем человечеством истин, он все-таки не доказывал бы врожденности этих истин»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#LOCKE-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#LOCKE-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Опыт_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Локк"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_врождённых_идей"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Ограничение_разума"/>
+        <has_quote>«очевидно, что дети и идиоты не имеют ни малейшего понятия или помышления о них»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#LOCKE-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#LOCKE-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Опыт_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Локк"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_врождённых_идей"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Ограничение_разума"/>
+        <has_quote>«будь верно то, что эти истины узнаются и признаются как раз в то время, когда начинают рассуждать, это не доказывало бы их врожденности»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#LOCKE-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#LOCKE-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Опыт_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Локк"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Эмпирическая_опора"/>
+        <has_quote>«На опыте основывается все наше знание, от него в конце концов оно происходит»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#LOCKE-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#LOCKE-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Опыт_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Локк"/>
+        <has_quote>«Откуда получает он весь материал рассуждения и знания? На это я отвечаю одним словом: из опыта»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#LOCKE-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#LOCKE-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Опыт_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Локк"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Ощущение_и_рефлексия"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Эмпирическая_опора"/>
+        <has_quote>«Но, называя первый источник ощущением, я называю второй рефлексией»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#LOCKE-09 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#LOCKE-09">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Опыт_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Локк"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Эмпирическая_опора"/>
+        <has_quote>«Вот два источника знания, откуда происходят все идеи, которые мы имеем или естественным образом можем иметь»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#LOCKE-10 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#LOCKE-10">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Опыт_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Локк"/>
+        <has_quote>«потому что он доставляет только такие идеи, которые приобретаются умом при помощи размышления о своей собственной деятельности внутри себя»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#LOCKE-11 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#LOCKE-11">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Опыт_о_человеческом_разумении"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Локк"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Эмпирическая_опора"/>
+        <has_quote>«Предположим, что ум есть, так сказать, белая бумага без всяких знаков и идей»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MAR-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MAR-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Тезисы_о_Фейербахе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Маркс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_созерцательности"/>
+        <has_quote>«предмет, действительность, чувственность берется только в форме объекта, или в форме созерцания, а не как человеческая чувственная деятельность, практика, не субъективно»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MAR-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MAR-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Тезисы_о_Фейербахе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Маркс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Истина_через_практику"/>
+        <has_quote>«Вопрос о том, обладает ли человеческое мышление предметной истинностью, — вовсе не вопрос теории, а практический вопрос. В практике должен доказать человек истинность, т. е. действительность и мощь, посюсторонность своего мышления»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MAR-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MAR-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Тезисы_о_Фейербахе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Маркс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Изменение_общества"/>
+        <has_quote>«обстоятельства изменяются именно людьми и что воспитатель сам должен быть воспитан. … Совпадение изменения обстоятельств и человеческой деятельности может рассматриваться и быть рационально понято только как революционная практика»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MAR-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MAR-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Тезисы_о_Фейербахе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Маркс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Изменение_общества"/>
+        <has_quote>«сущность человека не есть абстракт, присущий отдельному индивиду. В своей действительности она есть совокупность всех общественных отношений. … «религиозное чувство» само есть общественный продукт»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MAR-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MAR-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Тезисы_о_Фейербахе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Маркс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Изменение_общества"/>
+        <has_quote>«Философы лишь различным образом объясняли мир, но дело заключается в том, чтобы изменить его»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MAR-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MAR-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Тезисы_о_Фейербахе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Маркс"/>
+        <has_quote>«Главный недостаток всего предшествующего материализма — включая и фейербаховский»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MAR-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MAR-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Тезисы_о_Фейербахе"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Маркс"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Афористичная_форма"/>
+        <has_quote>«Философы лишь различным образом объясняли мир, но дело заключается в том, чтобы изменить его»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MIL-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MIL-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Утилитаризм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Милль"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Практическая_ориентация"/>
+        <has_quote>«Под счастьем подразумевается удовольствие и отсутствие боли; под несчастьем понимается боль и лишение удовольствия»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MIL-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MIL-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Утилитаризм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Милль"/>
+        <has_quote>«любой автор, от Эпикура до Бентама, кто поддерживает теорию пользы, понимают под ней не нечто совершенно не связанное с удовольствием, а именно само удовольствие»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MIL-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MIL-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Утилитаризм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Милль"/>
+        <has_quote>«суждение тех (или большинства из них, если их суждения различаются), кто искушен в обоих, следует признавать как окончательное»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MIL-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MIL-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Утилитаризм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Милль"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Изменение_общества"/>
+        <has_quote>«Бедность, в любом случае неизбежно порождающая страдание, может быть совершенно искоренена благодаря мудрости общества, вкупе с благоразумием и дальновидностью индивидуумов»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MIL-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MIL-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Утилитаризм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Милль"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Изменение_общества"/>
+        <has_quote>«счастье, на котором базируется утилитаристский стандарт нравственного поведения – это счастье не только для агента, но для всех, кого это касается»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MIL-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MIL-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Утилитаризм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Милль"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Изменение_общества"/>
+        <has_quote>«между личным счастьем и счастьем других людей, в соответствии с требованиями утилитаризма, не должно быть никаких различий»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MIL-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MIL-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Утилитаризм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Милль"/>
+        <has_quote>«Тот, кто спасает утопающего, поступает в моральном отношении правильно, независимо от его побуждения»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MIL-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MIL-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Утилитаризм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Милль"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Открытость_к_религии"/>
+        <has_quote>«утилитаризм - не просто не безбожная доктрина, а, наоборот, гораздо более религиозная, чем любая другая»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#MIL-09 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#MIL-09">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Утилитаризм_ист"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Милль"/>
+        <has_quote>«В этой связи упомянем постоянные обвинения утилитаризма в безбожии. Ну что можно возразить на такие претензии?»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#RUSS-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#RUSS-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философия_логического_атомизма"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Рассел"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Плюрализм"/>
+        <has_quote>«Логика, которую я буду отстаивать, является атомистичной в противоположность монистической логике тех, кто более или менее следует Гегелю»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#RUSS-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#RUSS-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философия_логического_атомизма"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Рассел"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Логико_лингвистический_анализ"/>
+        <has_quote>«анализируя математику, мы всю ее сводим к логике»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#RUSS-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#RUSS-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философия_логического_атомизма"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Рассел"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Атомарные_факты"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Логико_лингвистический_анализ"/>
+        <has_quote>«атомы, которые я хочу получить как конечный результат анализа, являются логическими, а не физическими»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#RUSS-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#RUSS-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философия_логического_атомизма"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Рассел"/>
+        <has_quote>«данные, неоспоримые для того, чтобы от них отталкиваться, всегда являются несколько нечеткими»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#RUSS-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#RUSS-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философия_логического_атомизма"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Рассел"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Метод_сомнения"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Ограничение_разума"/>
+        <has_quote>«Вы должны все подвергать сомнению и сохранять только то, в чем нельзя сомневаться по причине ясности и отчетливости»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#RUSS-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#RUSS-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философия_логического_атомизма"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Рассел"/>
+        <has_quote>«мир содержит факты, которые суть то, что они суть, независимо от того, что мы предпочитаем о них думать»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#RUSS-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#RUSS-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Проблемы_философии"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Рассел"/>
+        <has_quote>«Его «Три диалога между Гиласом и Филонусом» имели цель доказать, что не существует такой вещи, как материя, и что мир есть не что иное, как умы и их идеи»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#RUSS-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#RUSS-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Проблемы_философии"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Рассел"/>
+        <has_quote>«Мы обнаруживаем в себе эту веру уже готовой с того самого момента, когда начинаем размышлять: это то, что мы можем назвать инстинктивной верой»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#RUSS-09 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#RUSS-09">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философия_логического_атомизма"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Рассел"/>
+        <has_quote>«Нижеследующее представляет собой текст курса из восьми лекций, прочитанных в Лондоне»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#SAR-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#SAR-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Экзистенциализм_-_это_гуманизм"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Сартр"/>
+        <has_quote>«Я хотел бы выступить здесь в защиту экзистенциализма от ряда упрёков, высказанных в адрес этого учения»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#SAR-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#SAR-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Экзистенциализм_-_это_гуманизм"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Сартр"/>
+        <has_quote>«существуют две разновидности экзистенциалистов: во-первых, это христианские экзистенциалисты»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#SAR-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#SAR-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Экзистенциализм_-_это_гуманизм"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Сартр"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Примеры"/>
+        <has_quote>«Возьмём изготовленный человеческими руками предмет, например, книгу или нож для разрезания бумаги»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#SAR-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#SAR-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Экзистенциализм_-_это_гуманизм"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Сартр"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Свобода_и_ответственность"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Существование_предшествует_сущности"/>
+        <has_quote>«человек сначала существует, встречается, появляется в мире, и только потом он определяется»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#SAR-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#SAR-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Экзистенциализм_-_это_гуманизм"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Сартр"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Свобода_и_ответственность"/>
+        <has_quote>«выбирая себя, мы выбираем всех людей»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#SAR-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#SAR-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Экзистенциализм_-_это_гуманизм"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Сартр"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Свобода_и_ответственность"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Тревога_и_самообман"/>
+        <has_quote>«Экзистенциалист охотно заявит, что человек — это тревога»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#SAR-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#SAR-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Экзистенциализм_-_это_гуманизм"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Сартр"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Отсутствие_готовых_ценностей"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Свобода_и_ответственность"/>
+        <has_quote>«Экзистенциализм противостоит той распространённой светской морали, которая желает избавиться от бога с минимальными издержками»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#SAR-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#SAR-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Экзистенциализм_-_это_гуманизм"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Сартр"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Свобода_и_ответственность"/>
+        <has_quote>«человек осуждён быть свободным»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#SAR-09 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#SAR-09">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Экзистенциализм_-_это_гуманизм"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Сартр"/>
+        <has_quote>«мы будем принимать во внимание лишь то, что зависит от нашей воли, или ту сумму вероятностей, которые делают возможным наше действие»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#SAR-10 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#SAR-10">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Экзистенциализм_-_это_гуманизм"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Сартр"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Примеры"/>
+        <has_quote>«Человек — это прежде всего проект, который переживается субъективно, а не мох, не плесень и не цветная капуста»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#WIT-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#WIT-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философские_исследования"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_поздний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Логико_лингвистический_анализ"/>
+        <has_quote>«В этих словах заключена, мне кажется, особая картина действия человеческого языка»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#WIT-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#WIT-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философские_исследования"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_поздний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Значение_через_употребление"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Логико_лингвистический_анализ"/>
+        <has_quote>«Значение слова — это его употребление в языке»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#WIT-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#WIT-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философские_исследования"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_поздний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Примеры"/>
+        <has_quote>«Рассматривай это как завершенный примитивный язык»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#WIT-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#WIT-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философские_исследования"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_поздний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Семейное_сходство"/>
+        <has_quote>«мы видим сложную сеть подобий, накладывающихся друг на друга и переплетающихся»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#WIT-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#WIT-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философские_исследования"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_поздний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_терапия"/>
+        <has_quote>«Нам следует отказаться от всякого объяснения и заменить его только описанием»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#WIT-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#WIT-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философские_исследования"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_поздний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Значение_через_употребление"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_терапия"/>
+        <has_quote>«Мы возвращаем слова от метафизического к их повседневномуупотреблению»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#WIT-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#WIT-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философские_исследования"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_поздний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_терапия"/>
+        <has_quote>«Философия никоим образом не смеет посягать на действительное употребление языка… Философия просто все предъявляет нам, ничего не объясняя и не делая выводов»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#WIT-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#WIT-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философские_исследования"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_поздний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_терапия"/>
+        <has_quote>«Подлинное открытие заключается в том, что… обретаешь способность перестать философствовать. … нет какого-то одного метода философии, а есть методы наподобие различных терапий»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#WIT-09 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#WIT-09">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Философские_исследования"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_поздний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Афористичная_форма"/>
+        <has_quote>«Я записал все эти мысли в форме заметок, коротких абзацев»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Атомарные_факты -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Атомарные_факты">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Афористичная_форма -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Афористичная_форма">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Беркли -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Беркли">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Эмпиризм"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Бытие_как_воспринимаемость -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Бытие_как_воспринимаемость">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Витгенштейн_поздний -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Витгенштейн_поздний">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Философия_языка"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Философские_исследования"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Витгенштейн_ранний -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Витгенштейн_ранний">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Логический_атомизм"/>
+        <is_historically_related_to rdf:resource="http://example.org/philosophy#Витгенштейн_поздний"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Гегель -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Гегель">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Немецкий_идеализм"/>
+        <has_position rdf:resource="http://example.org/philosophy#Рационализм"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Феноменология_духа_Предисловие"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Граница_языка -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Граница_языка">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Декарт -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Декарт">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Рационализм"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Рассуждение_о_методе"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Джеймс -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Джеймс">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Прагматизм"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Прагматизм_ист"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Диалектический_метод -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Диалектический_метод">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Душевное_спокойствие -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Душевное_спокойствие">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Значение_через_употребление -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Значение_через_употребление">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Изменение_общества -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Изменение_общества">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Исследование_о_человеческом_разумении -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Исследование_о_человеческом_разумении">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Истина_как_процесс -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Истина_как_процесс">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Истина_через_практику -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Истина_через_практику">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Кант -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Кант">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Кантианство"/>
+        <has_position rdf:resource="http://example.org/philosophy#Немецкий_идеализм"/>
+        <has_position rdf:resource="http://example.org/philosophy#Рационализм"/>
+        <has_position rdf:resource="http://example.org/philosophy#Трансцендентальный_идеализм"/>
+        <has_position rdf:resource="http://example.org/philosophy#Эмпиризм"/>
+        <is_historically_related_to rdf:resource="http://example.org/philosophy#Юм"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Пролегомены"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Кантианство -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Кантианство">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Карнап -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Карнап">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Логический_атомизм"/>
+        <has_position rdf:resource="http://example.org/philosophy#Логический_позитивизм"/>
+        <is_historically_related_to rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Классификация_желаний -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Классификация_желаний">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Критика_абстрактных_идей -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Критика_абстрактных_идей">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Критика_врождённых_идей -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Критика_врождённых_идей">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Критика_метафизики -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Критика_метафизики">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Критика_созерцательности -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Критика_созерцательности">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Критика_формализма -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Критика_формализма">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Логико-философский_трактат -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Логико-философский_трактат">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Логико_лингвистический_анализ -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Логико_лингвистический_анализ">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Логический_атомизм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Логический_атомизм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Логический_позитивизм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Логический_позитивизм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Локк -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Локк">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Эмпиризм"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Опыт_о_человеческом_разумении"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Маркс -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Маркс">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Марксизм"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Тезисы_о_Фейербахе"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Марксизм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Марксизм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Метод -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Метод">
+        <rdf:type rdf:resource="http://example.org/philosophy#Dimension"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Метод_сомнения -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Метод_сомнения">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Милль -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Милль">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Утилитаризм"/>
+        <is_historically_related_to rdf:resource="http://example.org/philosophy#Эпикур"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Утилитаризм_ист"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Немецкий_идеализм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Немецкий_идеализм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Ограничение_разума -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Ограничение_разума">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Опыт_о_человеческом_разумении -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Опыт_о_человеческом_разумении">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Открытость_к_религии -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Открытость_к_религии">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Отсутствие_готовых_ценностей -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Отсутствие_готовых_ценностей">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Ощущение_и_рефлексия -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Ощущение_и_рефлексия">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Письмо_к_Менекею -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Письмо_к_Менекею">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Плюрализм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Плюрализм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Прагматизм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Прагматизм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Прагматизм_ист -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Прагматизм_ист">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Практическая_ориентация -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Практическая_ориентация">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Предмет -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Предмет">
+        <rdf:type rdf:resource="http://example.org/philosophy#Dimension"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Преодоление_метафизики_логическим_анализом_языка">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Примеры -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Примеры">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Проблемы_философии -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Проблемы_философии">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Пролегомены -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Пролегомены">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Рассел -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Рассел">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Логический_атомизм"/>
+        <influences rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Проблемы_философии"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Философия_логического_атомизма"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Рассуждение_о_методе -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Рассуждение_о_методе">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Рационализм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Рационализм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Руководство_к_жизни -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Руководство_к_жизни">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Сартр -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Сартр">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Экзистенциализм"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Экзистенциализм_-_это_гуманизм"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Свобода_и_ответственность -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Свобода_и_ответственность">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Семейное_сходство -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Семейное_сходство">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Стиль -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Стиль">
+        <rdf:type rdf:resource="http://example.org/philosophy#Dimension"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Стоицизм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Стоицизм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Существование_предшествует_сущности -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Существование_предшествует_сущности">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-01">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Граница_языка"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_терапия"/>
+        <has_quote>«книга хочет поставить границу мышлению, или скорее не мышлению, а выражению мыслей… все, что лежит по ту сторону границы, будет просто бессмыслицей»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-02 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-02">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Атомарные_факты"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Логико_лингвистический_анализ"/>
+        <has_quote>«Мир есть совокупность фактов, а не вещей»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-03 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-03">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <has_quote>«Предложение есть образ действительности»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-04 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-04">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_метафизики"/>
+        <has_quote>«Большинство предложений и вопросов, высказанных по поводу философских проблем, не ложны, а бессмысленны»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-05 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-05">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_терапия"/>
+        <has_quote>«Философия не теория, а деятельность»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-06 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-06">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Граница_языка"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_терапия"/>
+        <has_quote>«Что может быть показано, не может быть сказано»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-07 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-07">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Граница_языка"/>
+        <has_quote>«Границы моего языка означают границы моего мира»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-08 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-08">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <has_quote>«Этика трансцендентальна»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-09 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-09">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <has_quote>«Скептицизм… бессмыслен, если он хочет сомневаться там, где нельзя спрашивать»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-10 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-10">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Философия_как_терапия"/>
+        <has_quote>«Решение проблемы жизни состоит в исчезновении этой проблемы»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-11 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-11">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Критика_метафизики"/>
+        <has_quote>«Правильным методом философии был бы следующий: не говорить ничего, кроме того, что может быть сказано»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-12 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-12">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <has_quote>«О чем невозможно говорить, о том следует молчать»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Т-13 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Т-13">
+        <rdf:type rdf:resource="http://example.org/philosophy#Interpretation_fragment"/>
+        <described_in_source rdf:resource="http://example.org/philosophy#Логико-философский_трактат"/>
+        <describes_dimension rdf:resource="http://example.org/philosophy#Стиль"/>
+        <relates_to_philosopher rdf:resource="http://example.org/philosophy#Витгенштейн_ранний"/>
+        <represents_characteristic rdf:resource="http://example.org/philosophy#Афористичная_форма"/>
+        <has_quote>«Мои предложения поясняются тем фактом…»</has_quote>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Тезисы_о_Фейербахе -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Тезисы_о_Фейербахе">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Трактат_о_принципах_человеческого_знания -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Трактат_о_принципах_человеческого_знания">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Трансцендентальный_идеализм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Трансцендентальный_идеализм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Тревога_и_самообман -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Тревога_и_самообман">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Утилитаризм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Утилитаризм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Утилитаризм_ист -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Утилитаризм_ист">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Феноменология_духа_Предисловие -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Феноменология_духа_Предисловие">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Философия_как_наука -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Философия_как_наука">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Философия_как_терапия -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Философия_как_терапия">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Цель"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Философия_логического_атомизма -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Философия_логического_атомизма">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Философия_языка -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Философия_языка">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Философские_исследования -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Философские_исследования">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Цель -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Цель">
+        <rdf:type rdf:resource="http://example.org/philosophy#Dimension"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Экзистенциализм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Экзистенциализм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Экзистенциализм_-_это_гуманизм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Экзистенциализм_-_это_гуманизм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Source"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Эмпиризм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Эмпиризм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Эмпирическая_опора -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Эмпирическая_опора">
+        <rdf:type rdf:resource="http://example.org/philosophy#Characteristic"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Метод"/>
+        <has_dimension rdf:resource="http://example.org/philosophy#Предмет"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Эпиктет -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Эпиктет">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Стоицизм"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Руководство_к_жизни"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Эпикур -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Эпикур">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Эпикуреизм"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Письмо_к_Менекею"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Эпикуреизм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Эпикуреизм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosophical_movement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/philosophy#Юм -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/philosophy#Юм">
+        <rdf:type rdf:resource="http://example.org/philosophy#Philosopher"/>
+        <has_position rdf:resource="http://example.org/philosophy#Эмпиризм"/>
+        <influences rdf:resource="http://example.org/philosophy#Кант"/>
+        <is_studied_from_source rdf:resource="http://example.org/philosophy#Исследование_о_человеческом_разумении"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
