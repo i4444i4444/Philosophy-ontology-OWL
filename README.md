@@ -7,7 +7,7 @@ A formal OWL 2 DL ontology designed to model the domain of philosophy, focusing 
 ### The Problem with Taxonomy
 Representing philosophy as a strict hierarchy or taxonomy presents a fundamental methodological challenge. In a standard `subClassOf` model, a philosopher must be assigned to a specific philosophical movement. However, philosophical thought rarely fits into mutually exclusive categories. For instance, Immanuel Kant's philosophy is widely recognized as a synthesis of rationalism and empiricism. 
 
-If we model Kant as an instance of only one movement, we lose the complexity of his thought. If we attempt to model him as an instance of both rationalism and empiricism—classes that are often contradictory in their core premises—the ontology becomes logically inconsistent. Furthermore, trying to define philosophy itself through a rigid, conjunctive definition inevitably excludes thinkers who deviate from that definition.
+If we model Kant as an instance of only one movement, we lose the complexity of his thought. If we attempt to model him as an instance of both rationalism and empiricism — classes that are often contradictory in their core premises—the ontology becomes logically inconsistent. Furthermore, trying to define philosophy itself through a rigid, conjunctive definition inevitably excludes thinkers who deviate from that definition.
 
 ### The Network Solution
 To resolve this, the ontology abandons strict taxonomic classification in favor of a **network model of intersecting concepts**. Instead of assigning a philosopher directly to a movement, the ontology introduces an intermediate layer of abstraction: the **interpretation fragment**.
