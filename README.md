@@ -44,8 +44,7 @@ The ontology is populated with:
 ## Repository Structure
 
 *   `ontology/` — the `.owl` ontology file.
-*   `report/` — full documentation describing the methodology, design decisions, and visualizations.
-*   `visualizations/` — Gephi graphs showing relationships via fragments and direct characteristic links.
+*   `graphs/` — Gephi graphs showing relationships via fragments and direct characteristic links.
 
 ## Getting Started
 
